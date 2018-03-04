@@ -16,20 +16,24 @@ public class Teleport : MonoBehaviour {
 
 
 	public Transform eye;
-	public GameObject pad;
-	public GameObject invalid_pad;
-	public GameObject indicator;
+	public GameObject padPrefab;
+	public GameObject invalid_padPrefab;
+	public GameObject indicator;	
 	public LayerMask collisionLayers;
 	public float maxTeleportDistance = 30f;
 	public Light light;
 	public float maxIntensity = 5f;
 	public float maxLightRange = 150f;
 	public float rangeSpeed = 10f;
+	
+	private GameObject invalid_pad;
+	private GameObject pad;
 
 
-	public Material mat;
-
-
+	void Start(){
+		pad = Instantiate(padPrefab);
+		invalid_pad = Instantiate(invalid_padPrefab);
+	}
 	
 
 	void Update () {
